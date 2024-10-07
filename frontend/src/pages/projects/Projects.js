@@ -1,12 +1,14 @@
-import GitHubProjects from '../../components/GitHubProjects';
-import './Projects.css'; // Импортируем файл стилей (создайте, если он нужен)
+import { Box } from "@mui/material";
+import GitHubProjects from "../../components/GitHubProjects";
 
 const Projects = () => {
   return (
-    <div className="projects-container">
-      <h1>Мои Проекты</h1>
-      <GitHubProjects />
-    </div>
+    <Box display="flex" flex={1} flexDirection="column">
+      <Box width="100%">
+        <h1>Мои Проекты</h1>
+        <GitHubProjects />
+      </Box>
+    </Box>
   );
 };
 
