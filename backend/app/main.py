@@ -9,7 +9,7 @@ app = FastAPI()
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Разрешить запросы с фронтенда
+    allow_origins=["http://localhost:3000", "https://api.github.com"],  # Разрешить запросы с фронтенда
     allow_credentials=True,
     allow_methods=["*"],  # Разрешить все методы (POST, GET, и т.д.)
     allow_headers=["*"],
