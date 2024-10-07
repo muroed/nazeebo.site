@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import NewArticleForm from '../components/NewArticleForm';
+import NewArticleForm from '../../components/NewArticleForm';
 
 function Blog() {
   const [articles, setArticles] = useState([]);

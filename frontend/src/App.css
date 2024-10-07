@@ -2,20 +2,19 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-nav ul {
-  list-style: none;
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  color: #e24329; /* Цвет при наведении, как у GitLab */
+}
+
+ul {
+  list-style-type: none;
   padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 15px;
-}
-
-footer {
-  background-color: #FC6D26;
-  padding: 20px;
-  text-align: center;
 }
