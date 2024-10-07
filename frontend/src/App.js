@@ -5,19 +5,20 @@ import Blog from './pages/blog/Blog';
 import Projects from './pages/projects/Projects';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Main from './components/Main';
 
 const App = () => {
   return (
     <Router>
-    <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/blog" element={<Blog />} />
-      <Route path="/projects" element={<Projects />} /> 
-    </Routes>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Main />}>
+          <Route index element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/projects" element={<Projects />} />
+        </Route>
+      </Routes>
     </Router>
   );
-}
+};
 
 export default App;
