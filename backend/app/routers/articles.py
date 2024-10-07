@@ -1,16 +1,27 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
-from .. import models, schemas, crud
+from ..models import Article
+from ..schemas import ArticleCreate
 from ..database import get_db
 
 router = APIRouter()
 
-# Маршрут для создания новой статьи
-@router.post("/articles", response_model=schemas.Article)
-def create_article(article: schemas.ArticleCreate, db: Session = Depends(get_db)):
-    return crud.create_article(db=db, article=article)
+@router.get("/articles")
+def get_articles(search: str = Query(None), db: Session = Depends(get_db)):
+    if search:
+        # Ищем статьи, содержащие строку в заголовке или содержании
+        articles = db.query(Article).filter(
+            Article.title.ilike(f"%{search}%") |
+            Article.content.ilike(f"%{search}%")
+        ).all()
+    else:
+        articles = db.query(Article).all()
+    return articles
 
-# Маршрут для получения всех статей
-@router.get("/articles", response_model=list[schemas.Article])
-def get_articles(db: Session = Depends(get_db)):
-    return db.query(models.Article).all()
+@router.post("/articles")
+def create_article(article: ArticleCreate, db: Session = Depends(get_db)):
+    new_article = Article(title=article.title, content=article.content)
+    db.add(new_article)
+    db.commit()
+    db.refresh(new_article)
+    return new_article

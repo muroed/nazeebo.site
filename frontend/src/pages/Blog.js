@@ -1,37 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import NewArticleForm from '../components/NewArticleForm';
 
-const Blog = () => {
+function Blog() {
   const [articles, setArticles] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');  // Добавляем состояние для поиска
 
-  // Функция для получения всех статей
   const fetchArticles = async () => {
-    try {
-      const response = await fetch('/api/articles');
-      const data = await response.json();
-      setArticles(data);
-    } catch (err) {
-      console.error('Error fetching articles:', err);
-    }
+    const response = await fetch(`http://localhost:8000/api/articles?search=${searchTerm}`);
+    const data = await response.json();
+    setArticles(data);
   };
 
-  // Функция для обработки новой статьи
   const handleNewArticle = (newArticle) => {
-    setArticles([...articles, newArticle]); // Добавляем новую статью к уже существующим
+    setArticles([...articles, newArticle]);
   };
 
-  // Получаем статьи при загрузке компонента
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   useEffect(() => {
     fetchArticles();
-  }, []);
+  }, [searchTerm]);  // Теперь будет вызывать fetchArticles при изменении searchTerm
 
   return (
     <div>
       <h1>Blog</h1>
-      {/* Форма для создания новой статьи */}
+      <input
+        type="text"
+        placeholder="Search articles..."
+        value={searchTerm}
+        onChange={handleSearchChange}
+      />
       <NewArticleForm onArticleCreated={handleNewArticle} />
-      
-      {/* Список статей */}
       <ul>
         {articles.map((article) => (
           <li key={article.id}>
@@ -42,6 +43,6 @@ const Blog = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default Blog;
