@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react';
-import NewArticleForm from '../../components/NewArticleForm';
+import { useState, useEffect } from "react";
+import NewArticleForm from "../../components/NewArticleForm";
+import { Box } from "@mui/material";
 
 function Blog() {
   const [articles, setArticles] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');  // Добавляем состояние для поиска
+  const [searchTerm, setSearchTerm] = useState(""); // Добавляем состояние для поиска
 
   const fetchArticles = async () => {
-    const response = await fetch(`http://localhost:8000/api/articles?search=${searchTerm}`);
+    const response = await fetch(
+      `http://localhost:8000/api/articles?search=${searchTerm}`
+    );
     const data = await response.json();
     setArticles(data);
   };
@@ -21,10 +24,10 @@ function Blog() {
 
   useEffect(() => {
     fetchArticles();
-  }, [searchTerm]);  // Теперь будет вызывать fetchArticles при изменении searchTerm
+  }, [searchTerm]); // Теперь будет вызывать fetchArticles при изменении searchTerm
 
   return (
-    <div>
+    <Box flex={1}>
       <h1>Blog</h1>
       <input
         type="text"
@@ -41,7 +44,7 @@ function Blog() {
           </li>
         ))}
       </ul>
-    </div>
+    </Box>
   );
 }
 

@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { Box } from "@mui/material";
+import { useState, useEffect } from "react";
 
 const GitHubProjects = () => {
   const [projects, setProjects] = useState([]);
@@ -7,9 +8,9 @@ const GitHubProjects = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch('https://api.github.com/users/muroed/repos');
+      const response = await fetch("https://api.github.com/users/muroed/repos");
       if (!response.ok) {
-        throw new Error('Failed to fetch projects');
+        throw new Error("Failed to fetch projects");
       }
       const data = await response.json();
       setProjects(data);
@@ -33,19 +34,22 @@ const GitHubProjects = () => {
   }
 
   return (
-    <div>
-      <h2>My GitHub Projects</h2>
+    <Box display="flex" flexDirection="column">
       <ul>
         {projects.map((project) => (
           <li key={project.id}>
-            <a href={project.html_url} target="_blank" rel="noopener noreferrer">
+            <a
+              href={project.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {project.name}
             </a>
             <p>{project.description}</p>
           </li>
         ))}
       </ul>
-    </div>
+    </Box>
   );
 };
 

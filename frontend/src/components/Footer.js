@@ -1,18 +1,153 @@
-import React from 'react';
+import { Box, IconButton, SvgIcon, Typography } from "@mui/material";
+import TelegramIcon from "@mui/icons-material/Telegram";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
-const Footer = () => {
-  return (
-    <footer>
-      <p>Contact: </p>
-      <ul>
-        <li><a href="/* Insert GitHub URL here */">GitHub</a></li>
-        <li><a href="/* Insert Habr URL here */">Habr</a></li>
-        <li><a href="/* Insert Telegram URL here */">Telegram</a></li>
-        <li><a href="/* Insert VK URL here */">VK</a></li>
-        <li>Email: <a href="mailto:/* Insert your email here */">Your Email</a></li>
-      </ul>
-    </footer>
-  );
-};
+const Footer = () => (
+  <Box
+    display="flex"
+    justifyContent="space-between"
+    alignItems="center"
+    flex={0}
+    padding="0 1rem 0 1rem"
+  >
+    <Box>
+      <IconButton
+        LinkComponent="a"
+        href="https://web.telegram.org/k/"
+        target="_blank"
+        aria-label="link Telegram"
+        color="inherit"
+        size="large"
+      >
+        <SvgIcon>
+          <svg
+            width="800px"
+            height="800px"
+            viewBox="3 3 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 4C10.4178 4 8.87103 4.46919 7.55544 5.34824C6.23985 6.22729 5.21447 7.47672 4.60897 8.93853C4.00347 10.4003 3.84504 12.0089 4.15372 13.5607C4.4624 15.1126 5.22433 16.538 6.34315 17.6569C7.46197 18.7757 8.88743 19.5376 10.4393 19.8463C11.9911 20.155 13.5997 19.9965 15.0615 19.391C16.5233 18.7855 17.7727 17.7602 18.6518 16.4446C19.5308 15.129 20 13.5823 20 12C20 9.87827 19.1571 7.84344 17.6569 6.34315C16.1566 4.84285 14.1217 4 12 4ZM15.93 9.48L14.62 15.67C14.52 16.11 14.26 16.21 13.89 16.01L11.89 14.53L10.89 15.46C10.8429 15.5215 10.7824 15.5715 10.7131 15.6062C10.6438 15.6408 10.5675 15.6592 10.49 15.66L10.63 13.66L14.33 10.31C14.5 10.17 14.33 10.09 14.09 10.23L9.55 13.08L7.55 12.46C7.12 12.33 7.11 12.03 7.64 11.83L15.35 8.83C15.73 8.72 16.05 8.94 15.93 9.48Z"
+              fill="#000000"
+            />
+          </svg>
+        </SvgIcon>
+      </IconButton>
+      <IconButton
+        LinkComponent="a"
+        href="https://github.com"
+        target="_blank"
+        aria-label="link GitHub"
+        color="inherit"
+        size="large"
+      >
+        <SvgIcon>
+          <svg width="800px" height="800px" viewBox="0 0 20 20">
+            <defs></defs>
+            <g
+              id="Page-1"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g
+                id="Dribbble-Light-Preview"
+                transform="translate(-140.000000, -7559.000000)"
+                fill="#000000"
+              >
+                <g id="icons" transform="translate(56.000000, 160.000000)">
+                  <path
+                    d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399"
+                    id="github-[#142]"
+                  ></path>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </SvgIcon>
+      </IconButton>
+      <IconButton
+        LinkComponent="a"
+        href="https://habr.com/ru/feed/"
+        target="_blank"
+        aria-label="link Habr"
+        color="inherit"
+        size="large"
+      >
+        <SvgIcon>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="15 0 80 72">
+            <path d="M32.8 31.5c-1.62-.12-3.19.62-4.15 1.94V25H24v21.61h4.65v-7.9c0-1.89 1.07-2.79 2.36-2.79 1.41 0 2.3.96 2.3 2.7v7.99h4.65v-9.65c0-3.4-2.26-5.46-5.17-5.46ZM85.23 31.5c-1.61-.11-3.15.7-3.98 2.1v-1.69h-4.46v14.7h4.66v-7.95c-.09-.74.16-1.47.69-1.99.53-.52 1.26-.76 1.99-.65.79.01 1.58.14 2.33.39l.4-4.67c-.53-.15-1.07-.23-1.62-.23ZM51.28 33.49c-.99-1.31-2.55-2.05-4.18-1.99-3.91 0-6.79 3.39-6.79 7.73s2.88 7.76 6.77 7.76c1.63.07 3.2-.67 4.19-1.98v1.59h4.46V31.9h-4.46v1.58Zm-1.57 8.48c-.97.56-2.16.56-3.12 0-.97-.56-1.56-1.6-1.56-2.73 0-1.74 1.4-3.15 3.12-3.15s3.12 1.41 3.12 3.15c0 1.13-.6 2.17-1.56 2.73ZM67.6 31.51c-1.55-.07-3.04.6-4.02 1.8V25h-4.64v21.61h4.46v-1.58c.99 1.31 2.55 2.04 4.18 1.96 3.89 0 6.78-3.42 6.78-7.76s-2.89-7.73-6.75-7.72Zm-1.12 10.87c-1.72 0-3.12-1.41-3.12-3.15s1.4-3.15 3.12-3.15 3.12 1.41 3.12 3.15-1.4 3.15-3.12 3.15Z" />
+          </svg>
+        </SvgIcon>
+      </IconButton>
+      <IconButton
+        LinkComponent="a"
+        href="https://vk.com"
+        target="_blank"
+        aria-label="link VK"
+        color="inherit"
+        size="large"
+      >
+        <SvgIcon>
+          <svg
+            width="101"
+            height="100"
+            viewBox="0 0 101 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_2_16)">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.52944 7.02944C0.5 14.0589 0.5 25.3726 0.5 48V52C0.5 74.6274 0.5 85.9411 7.52944 92.9706C14.5589 100 25.8726 100 48.5 100H52.5C75.1274 100 86.4411 100 93.4706 92.9706C100.5 85.9411 100.5 74.6274 100.5 52V48C100.5 25.3726 100.5 14.0589 93.4706 7.02944C86.4411 0 75.1274 0 52.5 0H48.5C25.8726 0 14.5589 0 7.52944 7.02944ZM17.3752 30.4169C17.9168 56.4169 30.9167 72.0418 53.7084 72.0418H55.0003V57.1668C63.3753 58.0001 69.7082 64.1252 72.2498 72.0418H84.0835C80.8335 60.2085 72.2914 53.6668 66.9581 51.1668C72.2914 48.0835 79.7915 40.5835 81.5831 30.4169H70.8328C68.4995 38.6669 61.5836 46.1668 55.0003 46.8751V30.4169H44.2499V59.2501C37.5833 57.5835 29.1668 49.5002 28.7918 30.4169H17.3752Z"
+                fill="black"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_2_16">
+                <rect
+                  width="100"
+                  height="100"
+                  fill="white"
+                  transform="translate(0.5)"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+        </SvgIcon>
+      </IconButton>
+      <IconButton
+        LinkComponent="a"
+        href="mailto:nazeebod"
+        aria-label="link VK"
+        color="inherit"
+        size="large"
+      >
+        <SvgIcon>
+          <svg width="800px" height="800px" viewBox="0 -3.5 32 32">
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none">
+              <g
+                id="Icon-Set-Filled"
+                transform="translate(-414.000000, -261.000000)"
+                fill="#000000"
+              >
+                <path
+                  d="M430,275.916 L426.684,273.167 L415.115,285.01 L444.591,285.01 L433.235,273.147 L430,275.916 L430,275.916 Z M434.89,271.89 L445.892,283.329 C445.955,283.107 446,282.877 446,282.634 L446,262.862 L434.89,271.89 L434.89,271.89 Z M414,262.816 L414,282.634 C414,282.877 414.045,283.107 414.108,283.329 L425.147,271.927 L414,262.816 L414,262.816 Z M445,261 L415,261 L430,273.019 L445,261 L445,261 Z"
+                  id="mail"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </SvgIcon>
+      </IconButton>
+    </Box>
+    <Box display="flex" justifyContent="center" alignItems="center">
+      <Typography>&copy; {new Date().getFullYear()} nazeebod</Typography>
+    </Box>
+  </Box>
+);
 
 export default Footer;
